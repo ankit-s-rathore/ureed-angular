@@ -2,27 +2,27 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
 
-Main documentation of this the repo is [here](https://bitbucket.org/ureedteam/ureed-angular/wiki/Home)
-## Development server
+Prerequisites
+Make sure you have Node 8.9 or higher, together with NPM 5.5.1 or higher.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Install yarn globally on your machine.
+bash $ npm install -g yarn
 
-## Code scaffolding
+Install angular-cli globally. At least we want version 10.x.x.
+bash $ npm install -g angular-cli
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Installation
+From the root of the repo just run:
+$ yarn
 
-## Build
+Building
+Run yarn build to build the project for your local environment.
+The build artifacts will be stored in the dist/ directory.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Use yarn build:<env> to build for selected env and this is useful for CI builds. - yarn build:dev for development environment. - yarn build:staging for staging environment. - yarn build:prod for prod environment.
 
-## Running unit tests
+Running
+Run yarn start
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+A new browser window/tab will open with this link https://localhost:4200/.
+The app will automatically reload if you change any of the source files.
