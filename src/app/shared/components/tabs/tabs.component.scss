@@ -1,0 +1,29 @@
+.active {
+  @apply bg-gray-200;
+  @apply border-b-2;
+  @apply border-blue-600;
+  @apply text-blue-600;
+  @apply text-base;
+}
+
+.active-sub-tabs {
+  @apply bg-blue-600;
+  @apply rounded-full;
+  @apply text-white;
+  @apply font-medium;
+}
+
+.small-tab {
+  @apply py-4;
+  @apply px-10;
+}
+
+.x-small-tab {
+  @apply py-2;
+  @apply px-5;
+}
+
+
+.large-tab {
+  @apply p-6;
+}

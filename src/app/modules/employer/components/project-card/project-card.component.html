@@ -1,0 +1,190 @@
+<div
+  class="group bg-white rounded-lg shadow-xs p-4 relative border-b-4 border-transparent hover:border-blue-600 hover:bg-gray-100 transition duration-500 ease-in-out">
+  <div class="flex absolute top-0 ltr:right-0 rtl:left-0 mt-4 ltr:mr-4 rtl:ml-4 space-x-4 rtl:space-x-reverse">
+    <button
+      class="opacity-0 group-hover:opacity-100 group-hover:transform group-hover:translate-y-2 transition ease-in duration-500 bg-white text-blue-600 border border-blue-600 text-sm px-2 py-2 w-32 rounded shadow hover:shadow-lg outline-none focus:outline-none"
+      type="button" *ngIf="showInviteBtn">
+      Invite freelancers
+    </button>
+    <button
+      class="opacity-0 group-hover:opacity-100 group-hover:transform group-hover:translate-y-2 transition ease-in duration-500 bg-blue-600 text-white text-sm px-2 py-2 w-32 rounded shadow hover:shadow-lg outline-none focus:outline-none"
+      type="button" *ngIf="showPitchesBtn">
+      View pitches
+    </button>
+    <button
+      class="opacity-0 group-hover:opacity-100 group-hover:transform group-hover:translate-y-2 transition ease-in duration-500 bg-blue-600 text-white text-sm px-2 py-2 w-32 rounded shadow hover:shadow-lg outline-none focus:outline-none"
+      type="button" *ngIf="showEditingBtn">
+      Continue editing
+    </button>
+    <button
+      class="opacity-0 group-hover:opacity-100 group-hover:transform group-hover:translate-y-2 transition ease-in duration-500 bg-blue-600 text-white text-sm px-2 py-2 w-32 rounded shadow hover:shadow-lg outline-none focus:outline-none"
+      type="button" *ngIf="showRepostBtn">
+      Re-post project
+    </button>
+    <div class="relative" ureedClickOutside (clickOutside)="isOpenMenu = false">
+      <button class="text-gray-900 text-sm align-middle mt-4" type="button" (click)="isOpenMenu = !isOpenMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          stroke="currentColor">
+          <path
+            d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path
+            d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path
+            d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <div [ngClass]="{ hidden: !isOpenMenu, block: isOpenMenu }"
+        class="ltr:origin-top-left rtl:origin-top-right absolute ltr:right-0 rtl:left-0 mr-8 top-0 w-56 rounded-md shadow-lg transform z-10 overflow-y-auto max-h-72">
+        <div class="rounded-md bg-white shadow-xs">
+          <div class="py-1 menu" role="menu">
+            <span
+              class="menu-item flex justify-between menu-item px-4 py-2 text-sm font-medium leading-5 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer"
+              role="menuitem">
+              <span class="flex">Edit project</span>
+            </span>
+            <span
+              class="menu-item flex justify-between menu-item px-4 py-2 text-sm font-medium leading-5 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer"
+              role="menuitem">
+              <span class="flex">View pitches</span>
+            </span>
+            <span
+              class="menu-item flex justify-between menu-item px-4 py-2 text-sm font-medium leading-5 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-900 cursor-pointer"
+              role="menuitem">
+              <span class="flex">Invite freelancers</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class="text-xs text-gray-800">
+    <ng-container *ngIf="!isDraft && !isClosed">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+        stroke="currentColor" class="inline-block ltr:mr-1 rtl:ml-1 -mt-1" *ngIf="isPrivate">
+        <path
+          d="M9.5 5.5H2.5C1.94772 5.5 1.5 5.94772 1.5 6.5V10C1.5 10.5523 1.94772 11 2.5 11H9.5C10.0523 11 10.5 10.5523 10.5 10V6.5C10.5 5.94772 10.0523 5.5 9.5 5.5Z"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+          d="M3.5 5.5V3.5C3.5 2.83696 3.76339 2.20107 4.23223 1.73223C4.70107 1.26339 5.33696 1 6 1C6.66304 1 7.29893 1.26339 7.76777 1.73223C8.23661 2.20107 8.5 2.83696 8.5 3.5V5.5"
+          s stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <strong>{{ isPrivate ? 'Private project' : 'Public project' }}</strong> ·
+    </ng-container>
+    <ng-container *ngIf="isDraft">
+      <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+        class="inline-block ltr:mr-1 rtl:ml-1 -mt-1">
+        <path
+          d="M10.0779 1.50136C10.2368 1.34241 10.4255 1.21632 10.6332 1.1303C10.8409 1.04428 11.0635 1 11.2883 1C11.513 1 11.7356 1.04428 11.9433 1.1303C12.151 1.21632 12.3397 1.34241 12.4986 1.50136C12.6576 1.66031 12.7837 1.84901 12.8697 2.05669C12.9557 2.26436 13 2.48695 13 2.71174C13 2.93653 12.9557 3.15912 12.8697 3.3668C12.7837 3.57447 12.6576 3.76317 12.4986 3.92212L4.32855 12.0922L1 13L1.90779 9.67145L10.0779 1.50136Z"
+          stroke="#4A5568" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <strong>Drafted Project</strong> .
+    </ng-container>
+    <ng-container *ngIf="isClosed">
+      <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+        class="inline-block ltr:mr-1 rtl:ml-1 -mt-1">
+        <path d="M11.9092 3.72729V10.8182H2.09104V3.72729" stroke="#4A5568" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+        <path d="M13 1H1V3.72727H13V1Z" stroke="#4A5568" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+        <path d="M5.90909 5.90906H8.09091" stroke="#4A5568" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+      <strong>Closed Project</strong> .
+    </ng-container>
+    Posted 2 hours ago
+  </span>
+  <p class="transition duration-500 ease-in-out text-lg font-medium group-hover:underline">
+    Translator is need to work on an internal document
+  </p>
+  <div class="mt-4 space-x-4 rtl:space-x-reverse text-sm">
+    <span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+        stroke="currentColor" class="text-teal-500 inline-block ltr:mr-1 rtl:ml-1 rtl:transform rtl:rotate-90">
+        <path
+          d="M13.7268 8.93992L8.94683 13.7199C8.823 13.8439 8.67595 13.9422 8.51408 14.0093C8.35222 14.0764 8.17872 14.111 8.0035 14.111C7.82828 14.111 7.65477 14.0764 7.49291 14.0093C7.33105 13.9422 7.18399 13.8439 7.06016 13.7199L1.3335 7.99992V1.33325H8.00016L13.7268 7.05992C13.9752 7.30974 14.1146 7.64767 14.1146 7.99992C14.1146 8.35217 13.9752 8.6901 13.7268 8.93992V8.93992Z"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M4.6665 4.66675H4.67317" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+
+      <strong>Fixed</strong> · Est. $2,500
+    </span>
+    <span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+        stroke="currentColor" class="text-teal-500 inline-block ltr:mr-1 rtl:ml-1">
+        <path
+          d="M12.6667 2.66675H3.33333C2.59695 2.66675 2 3.2637 2 4.00008V13.3334C2 14.0698 2.59695 14.6667 3.33333 14.6667H12.6667C13.403 14.6667 14 14.0698 14 13.3334V4.00008C14 3.2637 13.403 2.66675 12.6667 2.66675Z"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M10.6665 1.33325V3.99992" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M5.3335 1.33325V3.99992" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M2 6.66675H14" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+
+      1 to 3 month
+    </span>
+    <span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+        stroke="currentColor" class="text-teal-500 inline-block ltr:mr-1 rtl:ml-1">
+        <path
+          d="M13.3332 14V12.6667C13.3332 11.9594 13.0522 11.2811 12.5521 10.781C12.052 10.281 11.3737 10 10.6665 10H5.33317C4.62593 10 3.94765 10.281 3.44755 10.781C2.94746 11.2811 2.6665 11.9594 2.6665 12.6667V14"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+          d="M8.00016 7.33333C9.47292 7.33333 10.6668 6.13943 10.6668 4.66667C10.6668 3.19391 9.47292 2 8.00016 2C6.5274 2 5.3335 3.19391 5.3335 4.66667C5.3335 6.13943 6.5274 7.33333 8.00016 7.33333Z"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+
+      Looking for <strong>Expert talent</strong>
+    </span>
+  </div>
+
+  <div class="mt-4 space-x-12 flex rtl:space-x-reverse" *ngIf="!isDraft">
+    <div>
+      <span class="text-sm text-gray-900">Pitches</span>
+      <span class="text-2xl leading-none flex items-center">25 <span class="text-teal-500 text-xs ltr:ml-2 rtl:mr-2">+ 6
+          new</span></span>
+    </div>
+    <div>
+      <span class="text-sm text-gray-900">Message</span>
+      <span class="block text-2xl leading-none">8</span>
+    </div>
+    <div>
+      <span class="text-sm text-gray-900">Shortlisted</span>
+      <span class="block text-2xl leading-none">6</span>
+    </div>
+    <div>
+      <span class="text-sm text-gray-900">Hired</span>
+      <span class="block text-2xl leading-none">1</span>
+    </div>
+  </div>
+  <div *ngIf="isQualified" class="bg-blue-100 px-4 py-2 relative text-xs rounded-lg mt-3">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"
+      class="inline-block ltr:mr-2 rtl:ml-2 align-middle">
+      <path
+        d="M8.00016 14.6666C11.6821 14.6666 14.6668 11.6818 14.6668 7.99992C14.6668 4.31802 11.6821 1.33325 8.00016 1.33325C4.31826 1.33325 1.3335 4.31802 1.3335 7.99992C1.3335 11.6818 4.31826 14.6666 8.00016 14.6666Z"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M8 10.6667V8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M8 5.33325H8.00667" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+
+    <p class="inline-block align-middle">
+      This project qualifies for
+      <span class="font-extrabold">FREE</span> consultation with our talent
+      acquisition team, chat with us and we will assist you with the hiring.
+    </p>
+
+    <a class="text-blue-600 cursor-pointer text-xs ltr:ml-6 rtl:mr-6 align-middle">Start chat with James
+      <img class="h-6 w-6 rounded-full inline-block ltr:ml-1 rtl:mr-1"
+        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt="" />
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+        xmlns="http://www.w3.org/2000/svg" class="inline-block ltr:ml-1 rtl:mr-1 rtl:transform rtl:rotate-180">
+        <path d="M3.3335 8H12.6668" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M8 3.33325L12.6667 7.99992L8 12.6666" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<nav class="py-5 w-full bg-white">
+  <div class="container mx-auto">
+    <ol class="list-reset flex text-grey-dark">
+      <li><a routerLink="/employer" class="text-blue">Dashboard</a></li>
+      <li class="flex items-center justify-center px-2">
+        <svg class="inline-block rtl:transform rtl:rotate-180" width="16" height="16" viewBox="0 0 16 16" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 12L10 8L6 4" stroke="#1A202C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </li>
+      <li><a class="text-gray-600">My projects</a></li>
+    </ol>
+  </div>
+</nav>
+
+<ureed-tabs [addSpaceBeforeFirstTab]="false" [isContainer]="true" [tabSize]="'small'">
+  <ureed-tab [title]="'My projects'" [isContainer]="true">
+    <ureed-my-projects-tab></ureed-my-projects-tab>
+  </ureed-tab>
+  <ureed-tab [title]="'My contracts'" [isContainer]="true">
+    <ureed-my-contracts-tab></ureed-my-contracts-tab>
+  </ureed-tab>
+</ureed-tabs>

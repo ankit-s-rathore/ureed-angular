@@ -1,0 +1,39 @@
+<nav class="bg-gray-900 relative mt-16 sm:m-0">
+  <div class="max-w-screen-xl m-auto">
+    <div class="relative sm:flex block items-center justify-between py-2">
+      <div class="px-5 flex justify-between items-center sm:hidden">
+        <div>
+          <img class="h-8" src="assets/layout/logo-white.svg" alt="Workflow logo" />
+        </div>
+        <!-- Mobile menu button-->
+        <ureed-mobile-menu></ureed-mobile-menu>
+      </div>
+      <div class="sm:flex block items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="sm:flex hidden items-center">
+          <img class="h-8" src="assets/layout/logo-white.svg" alt="Workflow logo" />
+        </div>
+        <!-- search  -->
+        <ureed-search-bar></ureed-search-bar>
+
+        <!-- menu -->
+        <ureed-menu-items></ureed-menu-items>
+      </div>
+      <div
+        class="absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center pr-2 sm:static sm:inset-auto ltr:sm:ml-6 rtl:sm:mr-6 ltr:sm:pr-0 rtl:sm:pl-0 text-white">
+
+        <!-- Messages -->
+        <ureed-messages></ureed-messages>
+
+        <!-- Notification -->
+        <ureed-notifications></ureed-notifications>
+
+        <!-- Language Menu -->
+        <ureed-language-menu></ureed-language-menu>
+
+        <!-- Profile dropdown -->
+        <ureed-profile-menu></ureed-profile-menu>
+
+      </div>
+    </div>
+  </div>
+</nav>

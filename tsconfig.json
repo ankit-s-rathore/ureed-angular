@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "strictNullChecks": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": ["es2018", "dom", "esnext.asynciterable"],
+    "paths": {
+      "@ureed/*": ["src/app/*"],
+      "@environment": ["src/environments/environment.ts"],
+      "@config": ["src/app/config"],
+      "@services": ["src/app/core/services"],
+      "@models": ["src/app/core/models"],
+      "@interceptors": ["src/app/core/interceptors"],
+      "@guards": ["src/app/core/guards"],
+      "@gql": ["src/app/core/gql"]
+    },
+    "allowSyntheticDefaultImports": true
+  }
+}

@@ -1,0 +1,82 @@
+<div class="ltr:ml-3 rtl:mr-3 relative mt-1 hidden sm:block" ureedClickOutside (clickOutside)="showProfileMenu = false">
+	<div class="transform hover:translate-y-1 transition duration-500">
+		<button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none" id="user-menu"
+			aria-label="User menu" aria-haspopup="true" (click)="showProfileMenu = !showProfileMenu">
+			<img class="h-6 w-6 rounded-full"
+				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				alt="" />
+			<span class="my-1 mx-1 font-medium">Jane</span>
+
+			<!-- <span class="my-1 mx-1 font-medium">Hello, Sign in</span> -->
+
+			<div>
+				<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+					class="mt-2 w-4 h-4 inline-block" stroke="currentColor">
+					<path d="M4 6L8 10L12 6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</div>
+		</button>
+	</div>
+	<!--
+        Profile dropdown panel, show/hide based on dropdown state.
+
+        Entering: "transition ease-out duration-100"
+          From: "transform opacity-0 scale-95"
+          To: "transform opacity-100 scale-100"
+        Leaving: "transition ease-in duration-75"
+          From: "transform opacity-100 scale-100"
+          To: "transform opacity-0 scale-95"
+      -->
+	<div class="ltr:origin-top-right rtl:origin-top-left profile_menu_content min-w-72 absolute z-10 w-66 ltr:right-0 rtl:left-0 whitespace-no-wrap mt-6 rounded-md shadow-lg transition"
+		[@dropMenuAnimate] *ngIf="showProfileMenu">
+		<div class="py-0 rounded-md bg-white" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+
+			<div class="flex p-4 bg-gray-100 rounded-t-md overflow-hidden">
+				<div>
+					<img class="h-14 w-14 rounded-full"
+						src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+						alt="" />
+				</div>
+				<div class="ltr:ml-2 rtl:mr-2">
+					<h2 class="text-black text-lg font-medium -mb-1">Jane Charles</h2>
+					<span class="text-gray-900 font-normal mb-px text-sm block">Facebook Inc.</span>
+					<span class="text-gray-700 font-normal text-xs block -mt-1">London, UK (GMT +1)</span>
+					<a href="#" class="text-blue-600 item-989 font-medium text-xs -mt-px block" role="menuitem">Your
+						Profile</a>
+				</div>
+			</div>
+
+			<div class="border-b border-gray-200 pb-3">
+				<strong class="text-black text-base font-medium ltr:pl-4 rtl:pr-4 mt-4 block">Account</strong>
+				<a href="#"
+					class="block px-4 link-1 py-1 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+					role="menuitem">Switch to company account</a>
+				<a href="#"
+					class="block px-4 py-1 link-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+					role="menuitem">Complete my profile</a>
+				<a href="#"
+					class="block px-4 py-1 link-3 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+					role="menuitem">Setting & privacy</a>
+				<a href="#"
+					class="block px-4 py-1 link-4 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+					role="menuitem">Help</a>
+			</div>
+
+			<div class="pb-3">
+				<strong class="text-black text-base font-medium ltr:pl-4 rtl:pr-4 mt-4 block">Manage</strong>
+				<a href="#"
+					class="block px-4 py-1 text-sm link-5 leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+					role="menuitem">Post a new project</a>
+				<a href="#"
+					class="block px-4 py-1 text-sm link-6 leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+					role="menuitem">My projects</a>
+				<a href="#"
+					class="block px-4 py-1 text-sm link-7 leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+					role="menuitem">Contracts</a>
+				<a href="#"
+					class="block px-4 py-1 text-sm link-8 leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+					role="menuitem">Pitches</a>
+			</div>
+		</div>
+	</div>
+</div>

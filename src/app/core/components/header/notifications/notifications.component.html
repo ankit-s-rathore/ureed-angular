@@ -1,0 +1,104 @@
+<div class="relative hidden sm:block" ureedClickOutside (clickOutside)="showNotificationMenu = false">
+  <div>
+    <button
+      class="p-1 ltr:ml-2 rtl:mr-2 border-2 border-transparent transform hover:translate-y-1 transition duration-500 focus:outline-none relative"
+      aria-label="Notifications" (click)="showNotificationMenu = !showNotificationMenu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+        stroke="currentColor">
+        <path
+          d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+          d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+        class="absolute top-0 ltr:right-0 rtl:left-0 animate-pulse">
+        <circle cx="8" cy="8" r="8" fill="#E53E3E" />
+        <circle cx="8" cy="8" r="3" fill="white" />
+      </svg>
+    </button>
+  </div>
+  <div>
+    <div
+      class="ltr:origin-top-right rtl:origin-top-left min-w-74 absolute z-10 w-66 ltr:right-0 rtl:left-0 bg-white mt-6 rounded-md shadow-base transition"
+      [@dropMenuAnimate] *ngIf="showNotificationMenu">
+      <strong class="text-black title_not text-lg font-medium ltr:pl-4 rtl:pr-4 pt-4 block mb-1">Notification</strong>
+      <div class="flex py-2 px-4 items-center hover:bg-gray-100 overflow-hidden">
+        <div>
+          <img class="h-14 w-14 rounded-full"
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt="" />
+        </div>
+        <div class="ltr:ml-2 rtl:mr-2 flex items-center justify-between">
+          <div>
+            <p class="text-gray-900 font-normal text-base mb-px block max-w-xs">
+              <strong class="text-black font-bold -mb-1 ltr:mr1 rtl:ml-1">Jane Charles</strong> submitted a pitch on
+              your
+              new
+              project.
+            </p>
+            <a href="#" class="text-blue-600 font-bold text-xs -mt-px block" role="menuitem">2 hours ago</a>
+          </div>
+          <!-- status -->
+          <div class="ltr:ml-4 rtl:mr-4">
+            <span class="block w-3 h-3 bg-blue-600 rounded-full"></span>
+          </div>
+        </div>
+      </div>
+      <div class="flex py-2 px-4 items-center hover:bg-gray-100 overflow-hidden">
+        <div>
+          <img class="h-14 w-14 rounded-full"
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt="" />
+        </div>
+        <div class="ltr:ml-2 rtl:mr-2 flex items-center justify-between">
+          <div>
+            <p class="text-gray-900 font-normal text-base mb-px block max-w-xs">
+              <strong class="text-black font-bold -mb-1 ltr:mr1 rtl:ml-1">Jane Charles</strong> submitted a pitch on
+              your
+              new
+              project.
+            </p>
+            <a href="#" class="text-blue-600 font-bold text-xs -mt-px block" role="menuitem">2 hours ago</a>
+          </div>
+          <!-- status -->
+          <div class="ltr:ml-4 rtl:mr-4">
+            <span class="block w-3 h-3 bg-blue-600 rounded-full"></span>
+          </div>
+        </div>
+
+      </div>
+      <div class="flex py-2 px-4 items-center hover:bg-gray-100 overflow-hidden">
+        <div>
+          <img class="h-14 w-14 rounded-full"
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt="" />
+        </div>
+        <div class="ltr:ml-2 rtl:mr-2 flex items-center justify-between">
+          <div>
+            <p class="text-gray-900 font-normal text-base mb-px block max-w-xs">
+              <strong class="text-black font-bold -mb-1 ltr:mr1 rtl:ml-1">Jane Charles</strong> submitted a pitch on
+              your
+              new
+              project submitted a pitch on your new.
+            </p>
+            <a href="#" class="text-blue-600 font-bold text-xs -mt-px block" role="menuitem">2 hours ago</a>
+          </div>
+          <!-- status -->
+          <div class="ltr:ml-4 rtl:mr-4">
+            <span class="block w-3 h-3 bg-blue-600 rounded-full"></span>
+          </div>
+        </div>
+
+      </div>
+      <!-- btn-more -->
+      <div class="border-t border-gray-200 py-4 text-center">
+        <a href="#" class="text-blue-600 all_not font-bold text-sm hover:text-black transition block"
+          role="menuitem">Load more</a>
+      </div>
+    </div>
+
+  </div>
+</div>

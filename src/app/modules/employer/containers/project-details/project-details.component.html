@@ -1,0 +1,61 @@
+<!-- Breadcrumb -->
+
+<div class="py-5 w-full bg-white">
+    <div class="container mx-auto">
+        <ol class="list-reset flex text-grey-dark">
+            <li><a routerLink="/employer" class="text-gray-900 cursor-pointer">Dashboard</a></li>
+            <li class="flex items-center justify-center px-2">
+                <svg class="transform rtl:rotate-180" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L10 8L6 4" stroke="#1A202C" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </li>
+            <li><a routerLink="/employer/projects" class="text-gray-900 cursor-pointer">My projects</a></li>
+            <li class="flex items-center justify-center px-2">
+                <svg class="transform rtl:rotate-180" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L10 8L6 4" stroke="#1A202C" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </li>
+            <li><a class="text-gray-500">Project details</a></li>
+        </ol>
+        <div class="flex justify-between mt-13 mb-8">
+            <p class="text-black text-2xl">
+                Translator is needed to work on an internal document
+
+                <svg class="inline-block ltr:ml-2 rtl:mr-2 stoke-current transform rtl:rotate-270" width="24"
+                    height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11"
+                        stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M15 3H21V9" stroke="black" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M10 14L21 3" stroke="black" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+
+            </p>
+
+            <ureed-select [showIcon]="true" [items]="projectType" [selectedItem]="projectType[1]">
+            </ureed-select>
+        </div>
+
+    </div>
+</div>
+
+<ureed-tabs [addSpaceBeforeFirstTab]="false" [isContainer]="true" [tabSize]="'small'">
+    <ureed-tab [title]="'Project details'" [isContainer]="true">
+        <ureed-project-details-tab></ureed-project-details-tab>
+    </ureed-tab>
+    <ureed-tab [title]="'Invite freelancers'" [isContainer]="true">
+        <ureed-invite-freelancers-tab></ureed-invite-freelancers-tab>
+    </ureed-tab>
+    <ureed-tab [title]="'Review pitches'" [isContainer]="true">
+        <ureed-review-pitches-tab></ureed-review-pitches-tab>
+    </ureed-tab>
+    <ureed-tab [title]="'Hired'" [isContainer]="true">
+        <ureed-hired-tab></ureed-hired-tab>
+    </ureed-tab>
+</ureed-tabs>

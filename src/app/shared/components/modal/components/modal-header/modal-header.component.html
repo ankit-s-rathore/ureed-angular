@@ -1,0 +1,12 @@
+<div
+  class="modal-title flex items-start justify-between align-middle p-4 ltr:pl-8 rtl:pr-8 border-b border-solid bg-gray-900 rounded-t-lg">
+  <h3 class="text-base text-white align-middle">
+    {{ modalTitle }}
+  </h3>
+  <button (click)="modalClose.emit()"
+    class="modal-btn ltr:ml-auto rtl:mr-auto bg-transparent border-0 text-black opacity-5 ltr:float-right rtl:float-left text-3xl leading-none font-semibold outline-none focus:outline-none">
+          <span class="bg-transparent cursor-pointer text-white opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+            ×
+          </span>
+  </button>
+</div>

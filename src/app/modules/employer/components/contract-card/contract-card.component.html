@@ -1,0 +1,61 @@
+<div class="bg-white rounded-lg shadow xs py-4 relative">
+  <div class="px-4">
+    <div class="absolute top-0 ltr:right-0 rtl:left-0 mt-5 ltr:mr-4 rtl:ml-4">
+      <button class="text-gray-900 text-sm align-middle" type="button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          stroke="currentColor">
+          <path
+            d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path
+            d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path
+            d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+
+    <span class="text-xs text-gray-800">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+        stroke="currentColor" class="inline-block ltr:mr-1 ltr:-mt-1 rtl:ml-1 rtl:-mr-1" *ngIf="isPrivate">
+        <path
+          d="M9.5 5.5H2.5C1.94772 5.5 1.5 5.94772 1.5 6.5V10C1.5 10.5523 1.94772 11 2.5 11H9.5C10.0523 11 10.5 10.5523 10.5 10V6.5C10.5 5.94772 10.0523 5.5 9.5 5.5Z"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+          d="M3.5 5.5V3.5C3.5 2.83696 3.76339 2.20107 4.23223 1.73223C4.70107 1.26339 5.33696 1 6 1C6.66304 1 7.29893 1.26339 7.76777 1.73223C8.23661 2.20107 8.5 2.83696 8.5 3.5V5.5"
+          s stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <strong>{{ isPrivate ? 'Private project' : 'Public project' }}</strong> ·
+      Last payment 2 days ago</span>
+    <p class="text-lg font-medium">
+      Looking for a freelance developer to work on a website
+    </p>
+
+    <div class="mt-4 space-x-12 rtl:space-x-reverse flex">
+      <div>
+        <span class="text-sm block leading-none">Budget</span>
+        <span class="block text-2xl">$5,500</span>
+      </div>
+      <div>
+        <span class="text-sm block leading-none">Total spent</span>
+        <span class="block text-2xl">$2,500</span>
+      </div>
+      <div>
+        <span class="text-sm block leading-none">This week</span>
+        <span class="block text-2xl">$250</span>
+      </div>
+      <div>
+        <span class="text-sm block leading-none">Total hours</span>
+        <span class="block text-2xl">20</span>
+      </div>
+      <div>
+        <span class="text-sm block leading-none">Hours this week</span>
+        <span class="block text-2xl">18</span>
+      </div>
+    </div>
+  </div>
+  <ureed-contract-card-freelancer *ngFor="let freelancer of freelancers" [freelancer]="freelancer">
+  </ureed-contract-card-freelancer>
+</div>

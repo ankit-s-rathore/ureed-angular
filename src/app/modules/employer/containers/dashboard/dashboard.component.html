@@ -1,0 +1,111 @@
+<div class="container mx-auto">
+  <div class="my-16 grid grid-cols-4 gap-8">
+    <div class="col-span-3">
+      <div class="flex justify-between">
+        <span class="text-3xl">Welcome back, Jane!</span>
+        <button
+          class="post-project-btn bg-blue-600 text-white active:bg-blue-900 text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none"
+          type="button" style="transition: all 0.15s ease" (click)="openPostProjectModal()">
+          Post a new project
+        </button>
+      </div>
+      <div class="w-full shadow-sm rounded-lg bg-white p-4 my-5">
+        <input type="text" placeholder="What do you want to accomplish?"
+          class="px-3 py-4 placeholder-gray-500 font-normal text-gray-500 bg-gray-100 rounded-lg border border-grey-100 text-lg w-full outline-none focus:shadow-outline" />
+      </div>
+
+      <ureed-alert [time]="'00:15'">
+        <strong>Sami Saeed</strong> submitted a milestone on “<strong>Translator is needed to work...</strong>” ·
+        <a href="#" class="text-blue-600 cursor-pointer">Review milestone</a>
+      </ureed-alert>
+
+      <div class="flex justify-between mt-8">
+        <span class="text-xl">Active projects</span>
+        <a class="text-blue-600 cursor-pointer text-xs" routerLink="/employer/projects">View all projects
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+            class="inline-block rtl:transform rtl:rotate-180" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.3335 8H12.6668" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8 3.33325L12.6667 7.99992L8 12.6666" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="flex flex-col mt-5 space-y-5">
+        <ureed-project-card></ureed-project-card>
+        <ureed-project-card [isPrivate]="true"></ureed-project-card>
+        <ureed-project-card [isPrivate]="true" [isQualified]="true"></ureed-project-card>
+      </div>
+
+      <div class="flex justify-between mt-8">
+        <span class="text-xl">Active contracts</span>
+        <a class="text-blue-600 cursor-pointer text-xs">View all contracts
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+            xmlns="http://www.w3.org/2000/svg" class="inline-block rtl:transform rtl:rotate-180">
+            <path d="M3.3335 8H12.6668" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8 3.33325L12.6667 7.99992L8 12.6666" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+      <div class="flex flex-col mt-5 space-y-5">
+        <ureed-contract-card [isPrivate]="true" [freelancers]="[contractFreelancers[0]]"></ureed-contract-card>
+        <ureed-contract-card [freelancers]="contractFreelancers"></ureed-contract-card>
+      </div>
+
+      <div class="flex justify-between mt-8">
+        <span class="text-xl">Freelancers</span>
+      </div>
+
+      <div class="mt-5">
+        <ureed-tabs [notActiveBackgroundClass]="'bg-gray-100'" [tabSize]="'large'" [fullTabBarWidth]="true"
+          [isCornerRounded]="true" [addSpaceBeforeFirstTab]="false">
+          <ureed-tab class="tab-container" [title]="'Previously hired'">
+            <div class="grid grid-cols-3 gap-12 p-8">
+              <ureed-freelancer-info *ngFor="let freelancer of freelancersInTabs" [freelancer]="freelancer"
+                [photoSize]="'w-18 h-18'" [nameSize]="'text-lg'"></ureed-freelancer-info>
+            </div>
+          </ureed-tab>
+          <ureed-tab class="tab-container" [title]="'Favorite'">
+            <div class="grid grid-cols-3 gap-12 p-8">
+              <ureed-freelancer-info *ngFor="
+                  let freelancer of [freelancersInTabs[0], freelancersInTabs[1]]
+                " [freelancer]="freelancer" [photoSize]="'w-18 h-18'" [nameSize]="'text-lg'"></ureed-freelancer-info>
+            </div>
+          </ureed-tab>
+          <ureed-tab class="tab-container" [title]="'Company talent'">
+            <div class="grid grid-cols-3 gap-12 p-8">
+              <ureed-freelancer-info *ngFor="
+                  let freelancer of [
+                    freelancersInTabs[0],
+                    freelancersInTabs[5],
+                    freelancersInTabs[7]
+                  ]
+                " [freelancer]="freelancer" [photoSize]="'w-18 h-18'" [nameSize]="'text-lg'"></ureed-freelancer-info>
+            </div>
+          </ureed-tab>
+          <ureed-tab class="tab-container" [title]="'Top rated'">
+            <div class="grid grid-cols-3 gap-12 p-8">
+              <ureed-freelancer-info *ngFor="let freelancer of freelancersInTabs" [freelancer]="freelancer"
+                [photoSize]="'w-18 h-18'" [nameSize]="'text-lg'"></ureed-freelancer-info>
+            </div>
+          </ureed-tab>
+        </ureed-tabs>
+      </div>
+    </div>
+
+    <div class="space-y-10 col-span-1">
+      <div>
+        <ureed-business-account-card></ureed-business-account-card>
+      </div>
+
+      <div>
+        <ureed-complete-profile-card></ureed-complete-profile-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ureed-post-project [showModal]="showPostProjectModal$ | async" (closeModal)="closePostProjectModal()"
+  (submitModal)="createProject()" [industries]="industries$ | async">
+</ureed-post-project>

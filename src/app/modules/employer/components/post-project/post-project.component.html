@@ -1,0 +1,76 @@
+<ureed-modal *ngIf="showModal" (modalClose)="close()" [modalTitle]="'Create a new project'">
+
+  <!--body-->
+  <ureed-modal-body>
+    <div class="w-132">
+      <div class="flex mb-4 justify-between">
+        <div class="flex">
+          <img
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
+            alt="" class="rounded-full w-12 h-12">
+          <div class="self-center ltr:ml-2 rtl:mr-2">
+            <p class="text-lg">Jane Charles</p>
+          </div>
+        </div>
+        <div class="flex">
+          <ureed-select class="w-48" [showIcon]="true" [items]="projectType" [label]="'Project type'"
+            [selectedItem]="projectType[1]">
+          </ureed-select>
+        </div>
+      </div>
+
+      <div class="w-full mb-4">
+        <label>
+          <input type="text" placeholder="Project title"
+            class="px-3 py-2 placeholder-gray-500 font-normal text-gray-500 bg-gray-100 rounded-md border border-grey-100 text-base w-full outline-none">
+        </label>
+      </div>
+
+      <div class="w-full mb-4 h-40 bg-gray-100 rounded-md border border-grey-100">
+        <label>
+          <textarea placeholder="e.g. I'm looking for a professional JavaScript developer to develop my website"
+            class="px-3 py-2 h-32 resize-none placeholder-gray-500 font-normal text-gray-500 bg-gray-100 text-base w-full outline-none"></textarea>
+        </label>
+        <span class="text-xs text-gray-500 ltr:mr-2 rtl:ml-2 ltr:float-right rtl:float-left -mt-2">0 / 225</span>
+      </div>
+
+      <div class="flex w-full mb-4 bg-gray-100 rounded-md p-4">
+        <span class="text-sm text-gray-900 ltr:mr-4 rtl:ml-4 mt-2">Speciality</span>
+        <ureed-select class="w-48 ltr:mr-4 rtl:ml-4" [items]="industries" [label]="'Select Industry'">
+        </ureed-select>
+
+        <ureed-multi-select [items]="skills" class="w-48 ltr:mr-8 rtl:ml-8" [maxItemSelect]="4"
+          [label]="'Select speciality'" [heading]="'Select up to 4 specialities'"
+          [selectedItems]="[skills[1], skills[3], skills[5]]">
+        </ureed-multi-select>
+      </div>
+
+      <div class="flex w-full mb-4 bg-gray-100 rounded-md p-4 pb-2">
+        <span class="text-sm text-gray-900 ltr:mr-4 rtl:ml-4">Skills</span>
+        <ureed-chip label="Add a skill" [items]="skills"></ureed-chip>
+      </div>
+
+      <div class="flex w-full mb-4 bg-gray-100 rounded-md p-4">
+        <span class="text-sm text-gray-900 ltr:mr-4 rtl:ml-4 mt-2">Budget</span>
+        <ureed-select class="w-full" [items]="budget" [label]="'Select type'" [selectedItem]="budget[1]">
+        </ureed-select>
+
+        <label class="ltr:ml-4 rtl:mr-4 ltr:mr-16 rtl:ml-16 relative">
+          <span
+            class="rounded-l m-px border border-gray-300 bg-gray-300 text-xs text-gray-600 px-3 py-2 absolute">USD</span>
+          <input type="text"
+            class="w-48 rounded border border-gray-300 ltr:pl-16 rtl:pr-22 py-2 text-gray-900 text-sm bg-white leading-5 focus:outline-none focus:shadow-outline-blue transition ease-in-out duration-150">
+        </label>
+      </div>
+    </div>
+  </ureed-modal-body>
+
+  <!--footer-->
+  <ureed-modal-footer>
+    <a [routerLink]="'project-details'" (click)="close()" class="text-xs text-blue-600 ltr:mr-4 rtl:ml-4">Advanced options</a>
+    <button type="button" (click)="submit()"
+      class="bg-gray-300 text-sm px-6 py-3 rounded text-gray-500 outline-none focus:outline-none">
+      Post project
+    </button>
+  </ureed-modal-footer>
+</ureed-modal>

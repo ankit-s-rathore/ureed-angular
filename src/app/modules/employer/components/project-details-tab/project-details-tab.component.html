@@ -1,0 +1,524 @@
+<div class="container mx-auto">
+  <div class="my-8 grid grid-cols-4 gap-8">
+    <!-- Description -->
+    <div class="space-y-4  col-span-3">
+      <div class="rounded-lg bg-white pb-4">
+        <label class="px-6 py-4 w-full inline-block border-gray-200 border-b text-xl font-medium">Description</label>
+
+        <label class="px-6 py-4 w-full inline-block text-sm font-medium">
+          Project title<span class="inline-block text-red-600">*</span>
+          <input type="text"
+                 class="px-3 py-2 placeholder-gray-500 text-gray-900 bg-gray-100 border border-gray-100 hover:border-gray-300 focus:border-blue-300 rounded-md text-base w-full outline-none">
+        </label>
+
+        <label class="px-6 pb-4 w-full inline-block text-sm font-medium">
+          Describe your project<span class="inline-block text-red-600">*</span>
+          <span class="inline-block ltr:float-right rtl:float-left text-gray-500">255</span>
+          <textarea placeholder="e.g. I'm looking for a professional JavaScript developer to develop my website"
+                    class="px-3 py-2 h-40 resize-none placeholder-gray-500 text-gray-900 font-normal bg-gray-100 rounded-md text-base w-full bg-gray-100 border border-gray-100 hover:border-gray-300 focus:border-blue-300 outline-none"></textarea>
+        </label>
+      </div>
+      <!-- Description End -->
+
+      <!-- Requirements -->
+      <div class="rounded-lg bg-white pb-4">
+        <label class="px-6 py-4 w-full inline-block border-gray-200 border-b text-xl font-medium">Requirements</label>
+
+        <div class="flex">
+          <label class="pl-6 pr-4 py-4 w-full inline-block text-sm font-medium">
+            Project category<span class="inline-block text-red-600">*</span>
+            <ureed-select [items]="skills" [label]="'Select Industry'">
+            </ureed-select>
+          </label>
+          <label class="ltr:pr-6 rtl:pl-6 py-4 w-full inline-block text-sm font-medium">
+            Specialities<span class="inline-block text-red-600">*</span>
+            <ureed-multi-select [maxItemSelect]="4" [items]="skills" [label]="'Select Industry'">
+            </ureed-multi-select>
+          </label>
+        </div>
+
+        <label class="px-6 pb-4 w-full inline-block text-sm font-medium">
+          Skills<span class="inline-block text-red-600">*</span>
+          <span class="block p-4 pb-2 rounded bg-gray-100 w-full">
+            <ureed-chip [items]="skills" [label]="'Add a skill'" class="mb-0"></ureed-chip>
+          </span>
+        </label>
+
+        <div class="flex">
+          <label class="pl-6 pr-4 pb-4 w-full inline-block text-sm font-medium">
+            Experience level
+            <ureed-select [items]="skills" [label]="'Select Experience level'">
+            </ureed-select>
+          </label>
+          <label class="ltr:pr-6 rtl:pl-6 pb-4 w-full inline-block text-sm font-medium">
+            Spoken languages<span class="inline-block text-red-600">*</span>
+            <ureed-multi-select [items]="skills" [label]="'Select Language'">
+            </ureed-multi-select>
+          </label>
+        </div>
+
+        <div class="flex">
+          <label class="pl-6 pr-4 pb-4 w-full inline-block text-sm font-medium">
+            Industries<span class="inline-block text-red-600">*</span>
+            <ureed-select [items]="skills" [label]="'Select Industry'">
+            </ureed-select>
+          </label>
+          <label class="ltr:pr-6 rtl:pl-6 pb-4 w-full inline-block text-sm font-medium">
+            Starting date<span class="inline-block text-red-600">*</span>
+            <ureed-select [items]="skills" [label]="'Select Date'">
+            </ureed-select>
+          </label>
+        </div>
+
+        <div class="flex">
+          <label class="pl-6 pr-4 pb-4 w-full inline-block text-sm font-medium">
+            Project duration
+            <ureed-select [items]="skills" [label]="'Select duration'">
+            </ureed-select>
+          </label>
+          <label class="ltr:pr-6 rtl:pl-6 pb-4 w-full inline-block text-sm font-medium">
+            Project frequency
+            <ureed-select [items]="skills" [label]="'Select frequency'">
+            </ureed-select>
+          </label>
+        </div>
+      </div>
+      <!-- Requirements End -->
+
+      <!-- Project uploads -->
+      <div class="rounded-lg bg-white pb-4">
+        <label class="px-6 py-4 w-full inline-block border-gray-200 border-b text-xl font-medium">Project
+          uploads</label>
+
+        <div class="flex p-6">
+          <div class="">
+            <div class="flex py-4 px-8 border rounded border-dashed ltr:mr-20 rtl:ml-20 cursor-pointer"
+                 (click)="showUploadFileModal=true">
+              <svg class="text-gray-500 mt-1 ltr:mr-2 rtl:ml-2" width="17" height="14" viewBox="0 0 17 14" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.0013 9.6652L8.33464 6.99854L5.66797 9.6652" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.33594 6.99854V12.9985" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path
+                  d="M13.9302 11.2584C14.5804 10.9039 15.0941 10.3429 15.3901 9.66411C15.6862 8.98527 15.7477 8.22718 15.565 7.50949C15.3824 6.79179 14.9659 6.15537 14.3813 5.70066C13.7968 5.24595 13.0775 4.99885 12.3369 4.99836H11.4969C11.2951 4.21786 10.919 3.49325 10.3969 2.87902C9.87471 2.2648 9.22012 1.77693 8.48229 1.4521C7.74446 1.12727 6.94259 0.973934 6.13697 1.00362C5.33134 1.0333 4.54293 1.24523 3.83101 1.62347C3.11908 2.00172 2.50216 2.53643 2.02664 3.18742C1.55111 3.8384 1.22935 4.58872 1.08554 5.38196C0.941734 6.1752 0.979624 6.99071 1.19636 7.7672C1.4131 8.54369 1.80305 9.26094 2.33689 9.86503"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11.0013 9.6652L8.33464 6.99854L5.66797 9.6652" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p class="text-sm text-gray-500"><span class="text-base text-blue-600">Browse files</span> or drag and
+                drop your files here</p>
+            </div>
+            <span class="text-xs text-gray-500 mt-2">*Maximum size per attachment 20MB</span>
+          </div>
+
+          <ul>
+            <li class="flex text-sm font-normal text-gray-800 mb-4">
+              <svg class="mt-px ltr:mr-2 rtl:ml-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V6.00016L8.66602 1.3335Z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.66602 1.3335V6.00016H13.3327" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              ArchitectureDesign_v1.pdf <span class="text-gray-500 mx-1">(2.1MB)</span>
+              <svg class="ltr:ml-2 rtl:mr-2 text-red-500 cursor-pointer" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 4H3.33333H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path
+                  d="M5.33398 4.00016V2.66683C5.33398 2.31321 5.47446 1.97407 5.72451 1.72402C5.97456 1.47397 6.3137 1.3335 6.66732 1.3335H9.33398C9.68761 1.3335 10.0267 1.47397 10.2768 1.72402C10.5268 1.97407 10.6673 2.31321 10.6673 2.66683V4.00016M12.6673 4.00016V13.3335C12.6673 13.6871 12.5268 14.0263 12.2768 14.2763C12.0267 14.5264 11.6876 14.6668 11.334 14.6668H4.66732C4.3137 14.6668 3.97456 14.5264 3.72451 14.2763C3.47446 14.0263 3.33398 13.6871 3.33398 13.3335V4.00016H12.6673Z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.66602 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M9.33398 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
+
+            </li>
+            <li class="flex text-sm font-normal text-gray-800 mb-4">
+              <svg class="mt-px ltr:mr-2 rtl:ml-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V6.00016L8.66602 1.3335Z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.66602 1.3335V6.00016H13.3327" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Reference.png <span class="text-gray-500 mx-1">(304KB)</span>
+              <svg class="ltr:ml-2 rtl:mr-2 text-red-500 cursor-pointer" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 4H3.33333H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path
+                  d="M5.33398 4.00016V2.66683C5.33398 2.31321 5.47446 1.97407 5.72451 1.72402C5.97456 1.47397 6.3137 1.3335 6.66732 1.3335H9.33398C9.68761 1.3335 10.0267 1.47397 10.2768 1.72402C10.5268 1.97407 10.6673 2.31321 10.6673 2.66683V4.00016M12.6673 4.00016V13.3335C12.6673 13.6871 12.5268 14.0263 12.2768 14.2763C12.0267 14.5264 11.6876 14.6668 11.334 14.6668H4.66732C4.3137 14.6668 3.97456 14.5264 3.72451 14.2763C3.47446 14.0263 3.33398 13.6871 3.33398 13.3335V4.00016H12.6673Z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.66602 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M9.33398 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
+            </li>
+            <li class="flex text-sm font-normal text-gray-800 mb-4">
+              <svg class="mt-px ltr:mr-2 rtl:ml-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V6.00016L8.66602 1.3335Z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.66602 1.3335V6.00016H13.3327" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Interaction demo.zip <span class="text-gray-500 mx-1">(12MB)</span>
+              <svg class="ltr:ml-2 rtl:mr-2 text-red-500 cursor-pointer" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 4H3.33333H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path
+                  d="M5.33398 4.00016V2.66683C5.33398 2.31321 5.47446 1.97407 5.72451 1.72402C5.97456 1.47397 6.3137 1.3335 6.66732 1.3335H9.33398C9.68761 1.3335 10.0267 1.47397 10.2768 1.72402C10.5268 1.97407 10.6673 2.31321 10.6673 2.66683V4.00016M12.6673 4.00016V13.3335C12.6673 13.6871 12.5268 14.0263 12.2768 14.2763C12.0267 14.5264 11.6876 14.6668 11.334 14.6668H4.66732C4.3137 14.6668 3.97456 14.5264 3.72451 14.2763C3.47446 14.0263 3.33398 13.6871 3.33398 13.3335V4.00016H12.6673Z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.66602 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M9.33398 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
+            </li>
+            <li class="flex text-sm font-normal text-gray-800 mb-4">
+              <svg class="mt-px ltr:mr-2 rtl:ml-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V6.00016L8.66602 1.3335Z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.66602 1.3335V6.00016H13.3327" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Demo.mp4 <span class="text-gray-500 mx-1">(12MB)</span>
+              <svg class="ltr:ml-2 rtl:mr-2 text-red-500 cursor-pointer" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 4H3.33333H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path
+                  d="M5.33398 4.00016V2.66683C5.33398 2.31321 5.47446 1.97407 5.72451 1.72402C5.97456 1.47397 6.3137 1.3335 6.66732 1.3335H9.33398C9.68761 1.3335 10.0267 1.47397 10.2768 1.72402C10.5268 1.97407 10.6673 2.31321 10.6673 2.66683V4.00016M12.6673 4.00016V13.3335C12.6673 13.6871 12.5268 14.0263 12.2768 14.2763C12.0267 14.5264 11.6876 14.6668 11.334 14.6668H4.66732C4.3137 14.6668 3.97456 14.5264 3.72451 14.2763C3.47446 14.0263 3.33398 13.6871 3.33398 13.3335V4.00016H12.6673Z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.66602 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+                <path d="M9.33398 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Project uploads End -->
+
+      <!-- Payment terms -->
+      <div class="rounded-lg bg-white pb-4">
+        <label class="px-6 py-4 w-full inline-block border-gray-200 border-b text-xl font-medium">Payment terms</label>
+
+        <div class="flex">
+          <label class="pl-6 pr-4 pt-4 w-3/5 inline-block text-sm font-medium">
+            How would you like to pay for this project <span class="inline-block text-red-600">*</span>
+            <ureed-select [items]="skills" [label]="'Select duration'">
+            </ureed-select>
+          </label>
+          <label class="relative pr-6 py-4 w-2/5 inline-block text-sm font-medium">
+            Price
+            <span class="block">
+            <span
+              class="bg-gray-100 text-xs font-medium text-gray-600 px-3 py-3 absolute ltr:rounded-l-sm rtl:rounded-r-sm mt-px ltr:ml-px rtl:mr-px">USD</span>
+            <input type="text"
+                   class="rounded bg-gray-100 ltr:pl-12 rtl:pr-24 bg-gray-100 border border-gray-100 hover:border-gray-300 focus:border-blue-300 py-3 text-gray-900 text-sm bg-white leading-5 focus:outline-none focus:shadow-outline-blue transition ease-in-out duration-150">
+          </span>
+          </label>
+        </div>
+      </div>
+      <!-- Payment terms End -->
+
+      <div class="flex mt-6 justify-end">
+        <button type="button"
+                class="text-gray-500 text-sm font-normal bg-gray-300 py-2 px-10 rounded focus:outline-none">Confirm
+          details
+        </button>
+      </div>
+    </div>
+
+    <div class="space-y-4 col-span-1">
+      <!--Project stats-->
+      <div class="rounded-lg bg-white p-4">
+        <h3 class="text-gray-900 text-lg font-medium">Project stats</h3>
+        <ul class="pt-4">
+          <li class="flex justify-between text-sm font-normal mb-2">
+            <span class="text-gray-700">Pitches</span>
+            <span>250</span>
+          </li>
+          <li class="flex justify-between text-sm font-normal mb-2">
+            <span class="text-gray-700">Shortlisted</span>
+            <span>8</span>
+          </li>
+          <li class="flex justify-between text-sm font-normal mb-2">
+            <span class="text-gray-700">Hired</span>
+            <span>1</span>
+          </li>
+          <li class="flex justify-between text-sm font-normal">
+            <span class="text-gray-700">Open Positions</span>
+            <span>2</span>
+          </li>
+        </ul>
+      </div>
+      <!--Project stats End-->
+
+      <!--Engaged freelancers-->
+      <div class="rounded-lg bg-white p-4">
+        <h3 class="text-gray-900 text-lg font-medium">Engaged freelancers</h3>
+        <ul class="pt-4">
+          <li class="flex mb-2">
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt=""
+              class="rounded-full w-12 h-12"
+            />
+            <div class="self-center ltr:ml-2 rtl:mr-2">
+              <p class="text-sm font-medium">Jane Charles</p>
+              <p class="text-xs font-normal text-gray-500">London, UK (GMT +1)</p>
+            </div>
+          </li>
+          <li class="flex mb-2">
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt=""
+              class="rounded-full w-12 h-12"
+            />
+            <div class="self-center ltr:ml-2 rtl:mr-2">
+              <p class="text-sm font-medium">Jane Charles</p>
+              <p class="text-xs font-normal text-gray-500">London, UK (GMT +1)</p>
+            </div>
+          </li>
+          <li class="flex mb-2">
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt=""
+              class="rounded-full w-12 h-12"
+            />
+            <div class="self-center ltr:ml-2 rtl:mr-2">
+              <p class="text-sm font-medium">Jane Charles</p>
+              <p class="text-xs font-normal text-gray-500">London, UK (GMT +1)</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!--Engaged freelancers End-->
+
+      <!--Share project-->
+      <div class="rounded-lg bg-white p-4">
+        <h3 class="text-gray-900 text-lg font-medium">Share project</h3>
+        <label class="pt-4 block relative">
+          <svg class="absolute mr-2 mt-3 right-0 cursor-pointer" width="18" height="18" viewBox="0 0 18 18" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15 6H12V2.67C11.9974 1.96268 11.7152 1.28509 11.2151 0.784935C10.7149 0.284783 10.0373 0.00263436 9.33 0H2.67C1.96268 0.00263436 1.28509 0.284783 0.784935 0.784935C0.284783 1.28509 0.00263436 1.96268 0 2.67V9.33C0.00263436 10.0373 0.284783 10.7149 0.784935 11.2151C1.28509 11.7152 1.96268 11.9974 2.67 12H6V15C6 15.7956 6.31607 16.5587 6.87868 17.1213C7.44129 17.6839 8.20435 18 9 18H15C15.7956 18 16.5587 17.6839 17.1213 17.1213C17.6839 16.5587 18 15.7956 18 15V9C18 8.20435 17.6839 7.44129 17.1213 6.87868C16.5587 6.31607 15.7956 6 15 6ZM6 9V10H2.67C2.49231 10 2.32189 9.92941 2.19624 9.80376C2.07059 9.67811 2 9.5077 2 9.33V2.67C2 2.49231 2.07059 2.32189 2.19624 2.19624C2.32189 2.07059 2.49231 2 2.67 2H9.33C9.5077 2 9.67811 2.07059 9.80376 2.19624C9.92941 2.32189 10 2.49231 10 2.67V6H9C8.20435 6 7.44129 6.31607 6.87868 6.87868C6.31607 7.44129 6 8.20435 6 9Z"
+              fill="#3182CE"/>
+          </svg>
+          <input type="text" placeholder="https://www.ureed.com/dashboard/projects/project-details"
+                 class="truncate border border-gray-200 rounded p-2 pr-10 w-full text-sm outline-none">
+        </label>
+
+        <div class="grid grid-cols-2 gap-4 mt-6">
+          <div class="flex">
+            <svg class="ltr:mr-3 rtl:ml-3" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 3.50005C17 3.36745 16.9473 3.24027 16.8536 3.1465C16.7598 3.05273 16.6326 3.00005 16.5 3.00005H14C12.7411 2.93734 11.5086 3.37544 10.5717 4.21863C9.63485 5.06182 9.06978 6.24155 9 7.50005V10.2001H6.5C6.36739 10.2001 6.24021 10.2527 6.14645 10.3465C6.05268 10.4403 6 10.5674 6 10.7001V13.3001C6 13.4327 6.05268 13.5598 6.14645 13.6536C6.24021 13.7474 6.36739 13.8001 6.5 13.8001H9V20.5001C9 20.6327 9.05268 20.7598 9.14645 20.8536C9.24021 20.9474 9.36739 21.0001 9.5 21.0001H12.5C12.6326 21.0001 12.7598 20.9474 12.8536 20.8536C12.9473 20.7598 13 20.6327 13 20.5001V13.8001H15.62C15.7312 13.8017 15.8397 13.7661 15.9285 13.6991C16.0172 13.6321 16.0811 13.5374 16.11 13.4301L16.83 10.8301C16.8499 10.7562 16.8526 10.6787 16.8378 10.6036C16.8231 10.5286 16.7913 10.4579 16.7449 10.397C16.6985 10.3362 16.6388 10.2868 16.5704 10.2526C16.5019 10.2185 16.4265 10.2005 16.35 10.2001H13V7.50005C13.0249 7.25253 13.1411 7.02317 13.326 6.85675C13.5109 6.69033 13.7512 6.59881 14 6.60005H16.5C16.6326 6.60005 16.7598 6.54737 16.8536 6.45361C16.9473 6.35984 17 6.23266 17 6.10005V3.50005Z" fill="#4A5568"/>
+            </svg>
+            <span class="text-gray-700">Facebook</span>
+          </div>
+          <div class="flex">
+            <svg class="ltr:mr-3 rtl:ml-3" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M15.1508 8.39994C14.3843 8.39731 13.6249 8.54583 12.9159 8.83701C12.2069 9.12819 11.5623 9.55632 11.019 10.0969C10.4756 10.6375 10.0442 11.2799 9.74934 11.9873C9.45452 12.6948 9.30209 13.4535 9.30078 14.2199V20.0999C9.30078 20.3386 9.3956 20.5676 9.56439 20.7363C9.73317 20.9051 9.96209 20.9999 10.2008 20.9999H12.3008C12.5395 20.9999 12.7684 20.9051 12.9372 20.7363C13.106 20.5676 13.2008 20.3386 13.2008 20.0999V14.2199C13.2006 13.9473 13.2578 13.6778 13.3688 13.4288C13.4798 13.1798 13.642 12.957 13.8448 12.7749C14.0477 12.5928 14.2867 12.4555 14.5461 12.3719C14.8056 12.2884 15.0798 12.2604 15.3508 12.2899C15.8368 12.3512 16.2834 12.5886 16.606 12.9572C16.9286 13.3259 17.1046 13.8001 17.1008 14.2899V20.0999C17.1008 20.3386 17.1956 20.5676 17.3644 20.7363C17.5332 20.9051 17.7621 20.9999 18.0008 20.9999H20.1008C20.3395 20.9999 20.5684 20.9051 20.7372 20.7363C20.906 20.5676 21.0008 20.3386 21.0008 20.0999V14.2199C20.9995 13.4535 20.847 12.6948 20.5522 11.9873C20.2574 11.2799 19.826 10.6375 19.2826 10.0969C18.7393 9.55632 18.0946 9.12819 17.3857 8.83701C16.6767 8.54583 15.9172 8.39731 15.1508 8.39994Z"
+                fill="#4A5568"/>
+              <path
+                d="M6.6 9.30005H3.9C3.40294 9.30005 3 9.70299 3 10.2V20.1C3 20.5971 3.40294 21 3.9 21H6.6C7.09706 21 7.5 20.5971 7.5 20.1V10.2C7.5 9.70299 7.09706 9.30005 6.6 9.30005Z"
+                fill="#4A5568"/>
+              <path
+                d="M5.25 7.5C6.49264 7.5 7.5 6.49264 7.5 5.25C7.5 4.00736 6.49264 3 5.25 3C4.00736 3 3 4.00736 3 5.25C3 6.49264 4.00736 7.5 5.25 7.5Z"
+                fill="#4A5568"/>
+            </svg>
+            <span class="text-gray-700">LinkedIn</span>
+          </div>
+
+          <div class="flex">
+            <svg class="ltr:mr-3 rtl:ml-3" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8.08029 20C9.55898 20.0495 11.0326 19.8021 12.414 19.2723C13.7955 18.7426 15.0567 17.9413 16.1232 16.9159C17.1897 15.8904 18.0398 14.6615 18.6233 13.3019C19.2067 11.9423 19.5118 10.4795 19.5203 9.00004C20.1979 8.16146 20.7011 7.19587 21.0003 6.16004C21.0226 6.07821 21.0208 5.99166 20.9951 5.91082C20.9694 5.82998 20.9208 5.7583 20.8553 5.70441C20.7898 5.65052 20.7101 5.61672 20.6258 5.60707C20.5416 5.59743 20.4563 5.61235 20.3803 5.65004C20.0258 5.8207 19.6266 5.87582 19.2391 5.80765C18.8516 5.73948 18.4953 5.55145 18.2203 5.27004C17.8692 4.88562 17.4446 4.57557 16.9715 4.35827C16.4985 4.14097 15.9866 4.02083 15.4662 4.00498C14.9459 3.98913 14.4276 4.07788 13.9422 4.26598C13.4568 4.45408 13.0141 4.73771 12.6403 5.10004C12.1285 5.5957 11.7536 6.21533 11.5521 6.89872C11.3506 7.5821 11.3293 8.306 11.4903 9.00004C8.14029 9.20004 5.84029 7.61004 4.00029 5.43004C3.94501 5.36745 3.8727 5.3223 3.79219 5.30011C3.71168 5.27793 3.62645 5.27967 3.54691 5.30512C3.46737 5.33057 3.39697 5.37864 3.34429 5.44344C3.29162 5.50824 3.25895 5.58698 3.25029 5.67004C2.89976 7.61447 3.15261 9.61959 3.9749 11.4161C4.79719 13.2126 6.14953 14.7145 7.85029 15.72C6.70992 17.0279 5.10849 17.8447 3.38029 18C3.2877 18.0154 3.20223 18.0593 3.13584 18.1257C3.06945 18.192 3.02546 18.2774 3.01003 18.37C2.9946 18.4626 3.0085 18.5577 3.04979 18.6419C3.09108 18.7262 3.15768 18.7955 3.24029 18.84C4.74381 19.5914 6.39952 19.9882 8.08029 20Z"
+                fill="#4A5568"/>
+            </svg>
+            <span class="text-gray-700">Twitter</span>
+          </div>
+          <div class="flex">
+            <svg class="ltr:mr-3 rtl:ml-3" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M19 4H5C4.20435 4 3.44129 4.31607 2.87868 4.87868C2.31607 5.44129 2 6.20435 2 7V17C2 17.7956 2.31607 18.5587 2.87868 19.1213C3.44129 19.6839 4.20435 20 5 20H19C19.7956 20 20.5587 19.6839 21.1213 19.1213C21.6839 18.5587 22 17.7956 22 17V7C22 6.20435 21.6839 5.44129 21.1213 4.87868C20.5587 4.31607 19.7956 4 19 4ZM19 6L12.5 10.47C12.348 10.5578 12.1755 10.604 12 10.604C11.8245 10.604 11.652 10.5578 11.5 10.47L5 6H19Z"
+                fill="#4A5568"/>
+            </svg>
+            <span class="text-gray-700 truncate">Email</span>
+          </div>
+        </div>
+      </div>
+      <!--share project End-->
+
+      <!--Contact us-->
+      <div class="rounded-lg bg-white p-4">
+        <h3 class="text-gray-900 text-lg font-medium">Contact us</h3>
+        <div class="flex mt-2">
+          <img
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+            class="rounded-full w-12 h-12 mt-3"
+          />
+          <div class="self-center ltr:ml-3 rtl:mr-3">
+            <p class="text-lg font-medium">Jane Charles</p>
+            <p class="text-sm">Expert Talent Manager</p>
+            <p class="flex text-xs font-normal text-gray-700">
+              <svg class="mt-1 ltr:mr-2 rtl:ml-2" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M11.2246 1.93799H2.95364C2.48368 1.93799 2.03296 2.12468 1.70065 2.457C1.36833 2.78931 1.18164 3.24002 1.18164 3.70999V9.61799C1.18164 10.088 1.36833 10.5387 1.70065 10.871C2.03296 11.2033 2.48368 11.39 2.95364 11.39H11.2246C11.6946 11.39 12.1453 11.2033 12.4776 10.871C12.8099 10.5387 12.9966 10.088 12.9966 9.61799V3.70999C12.9966 3.47729 12.9508 3.24686 12.8618 3.03187C12.7727 2.81688 12.6422 2.62154 12.4776 2.457C12.3131 2.29245 12.1177 2.16192 11.9028 2.07287C11.6878 1.98382 11.4573 1.93799 11.2246 1.93799ZM10.8246 3.11999L7.08964 5.92599L3.34964 3.11999H10.8246ZM11.2246 10.209H2.95364C2.7969 10.209 2.64657 10.1467 2.53574 10.0359C2.42491 9.92505 2.36264 9.77473 2.36264 9.61799V3.85799L6.73464 7.13799C6.83692 7.21467 6.96131 7.25611 7.08914 7.25611C7.21697 7.25611 7.34136 7.21467 7.44364 7.13799L11.8156 3.85799V9.61799C11.8156 9.6956 11.8004 9.77245 11.7707 9.84415C11.741 9.91586 11.6974 9.98101 11.6425 10.0359C11.5877 10.0908 11.5225 10.1343 11.4508 10.164C11.3791 10.1937 11.3023 10.209 11.2246 10.209Z"
+                  fill="#4A5568"/>
+              </svg>
+              james@ureed.com
+            </p>
+            <p class="flex text-xs font-normal text-gray-700">
+              <svg class="mt-1 ltr:mr-2 rtl:ml-2" width="12" height="12" viewBox="0 0 12 12" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.37234 11.1921C6.35843 11.1908 4.42738 10.3902 3.00333 8.96616C1.57928 7.5421 0.778668 5.61106 0.777344 3.59714C0.777609 2.99554 1.01678 2.41867 1.44227 1.99336C1.86776 1.56806 2.44474 1.32914 3.04634 1.32914C3.17385 1.32831 3.30113 1.34004 3.42634 1.36414C3.54591 1.38205 3.66347 1.41153 3.77734 1.45214C3.85845 1.4805 3.93074 1.52955 3.98705 1.59445C4.04335 1.65936 4.08172 1.73785 4.09834 1.82214L4.77734 4.78114C4.79565 4.86149 4.79353 4.94514 4.77116 5.02444C4.7488 5.10375 4.70692 5.17619 4.64934 5.23514C4.58534 5.30414 4.58034 5.30914 3.97334 5.62514C4.45977 6.69099 5.31291 7.54662 6.37734 8.03614C6.69834 7.42414 6.70234 7.42014 6.77234 7.35514C6.83118 7.2984 6.9032 7.25717 6.98193 7.23518C7.06066 7.21318 7.14362 7.21111 7.22334 7.22914L10.1823 7.90514C10.2639 7.9241 10.3393 7.96351 10.4014 8.01967C10.4635 8.07584 10.5103 8.14689 10.5373 8.22614C10.5791 8.34319 10.6105 8.46364 10.6313 8.58614C10.6513 8.71014 10.6614 8.83554 10.6613 8.96114C10.6513 9.55979 10.4051 10.1302 9.97637 10.5481C9.54761 10.966 8.97105 11.1975 8.37234 11.1921ZM3.04634 2.31514C2.70657 2.3162 2.38099 2.45157 2.14064 2.69174C1.90029 2.9319 1.76466 3.25737 1.76334 3.59714C1.76467 5.34929 2.46129 7.02929 3.70024 8.26824C4.9392 9.5072 6.6192 10.2038 8.37134 10.2051C8.71095 10.2038 9.03626 10.0683 9.2764 9.8282C9.51654 9.58806 9.65203 9.26274 9.65334 8.92314V8.76114L7.36634 8.22914L7.22334 8.50014C7.00134 8.92914 6.83834 9.24014 6.42334 9.07214C5.60677 8.78001 4.86545 8.30979 4.25316 7.69559C3.64086 7.0814 3.17295 6.33862 2.88334 5.52114C2.70534 5.13614 3.04134 4.95914 3.46534 4.73714L3.73634 4.60414L3.20834 2.31514H3.04634Z"
+                  fill="#4A5568"/>
+              </svg>
+              +97152415123
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-lg mt-3 font-medium">You qualify for premium support</h3>
+        <p class="text-sm text-gray-900 mt-3">You're eligible to speak with our Ureed experts. Choose a suitable time
+          slot and we will be assisting you with all of your hiring needs</p>
+        <button type="button" class="outline-none bg-blue-600 rounded py-2 px-4 text-white text-sm font-medium mt-3">
+          Book a slot now
+        </button>
+      </div>
+      <!--Contact us End-->
+    </div>
+  </div>
+</div>
+
+
+<!--Upload file modal-->
+<ureed-modal modalTitle="Upload file" size="small" *ngIf="showUploadFileModal" (modalClose)="showUploadFileModal=false">
+  <ureed-modal-body>
+    <div class="w-96">
+      <ul>
+        <li class="flex justify-between text-sm font-normal text-gray-800 mb-4 border-gray-300 border-b">
+          <div class="flex pb-4">
+            <svg class="mt-px ltr:mr-2 rtl:ml-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V6.00016L8.66602 1.3335Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.66602 1.3335V6.00016H13.3327" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="max-w-70 truncate">ArchitectureDesign_v1.pdf</p><span class="text-gray-500 ml-1">(2.1MB)</span>
+          </div>
+          <svg class="text-red-500 cursor-pointer" width="16" height="16" viewBox="0 0 16 16" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 4H3.33333H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+            <path
+              d="M5.33398 4.00016V2.66683C5.33398 2.31321 5.47446 1.97407 5.72451 1.72402C5.97456 1.47397 6.3137 1.3335 6.66732 1.3335H9.33398C9.68761 1.3335 10.0267 1.47397 10.2768 1.72402C10.5268 1.97407 10.6673 2.31321 10.6673 2.66683V4.00016M12.6673 4.00016V13.3335C12.6673 13.6871 12.5268 14.0263 12.2768 14.2763C12.0267 14.5264 11.6876 14.6668 11.334 14.6668H4.66732C4.3137 14.6668 3.97456 14.5264 3.72451 14.2763C3.47446 14.0263 3.33398 13.6871 3.33398 13.3335V4.00016H12.6673Z"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6.66602 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+            <path d="M9.33398 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </li>
+
+        <li class="flex justify-between text-sm font-normal text-gray-800 mb-4 border-gray-300 border-b">
+          <div class="flex pb-4">
+            <svg class="mt-px ltr:mr-2 rtl:ml-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V6.00016L8.66602 1.3335Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.66602 1.3335V6.00016H13.3327" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="max-w-70 truncate">ArchitectureDesign_v1.pdf</p><span class="text-gray-500 ml-1">(2.1MB)</span>
+          </div>
+          <svg class="text-red-500 cursor-pointer" width="16" height="16" viewBox="0 0 16 16" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 4H3.33333H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+            <path
+              d="M5.33398 4.00016V2.66683C5.33398 2.31321 5.47446 1.97407 5.72451 1.72402C5.97456 1.47397 6.3137 1.3335 6.66732 1.3335H9.33398C9.68761 1.3335 10.0267 1.47397 10.2768 1.72402C10.5268 1.97407 10.6673 2.31321 10.6673 2.66683V4.00016M12.6673 4.00016V13.3335C12.6673 13.6871 12.5268 14.0263 12.2768 14.2763C12.0267 14.5264 11.6876 14.6668 11.334 14.6668H4.66732C4.3137 14.6668 3.97456 14.5264 3.72451 14.2763C3.47446 14.0263 3.33398 13.6871 3.33398 13.3335V4.00016H12.6673Z"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6.66602 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+            <path d="M9.33398 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </li>
+
+        <li class="flex justify-between text-sm font-normal text-gray-800 mb-4 border-gray-300 border-b">
+          <div class="flex pb-4">
+            <svg class="mt-px ltr:mr-2 rtl:ml-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V6.00016L8.66602 1.3335Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.66602 1.3335V6.00016H13.3327" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="max-w-70 truncate">ArchitectureDesign_v1.pdf</p><span class="text-gray-500 ml-1">(2.1MB)</span>
+          </div>
+          <svg class="text-red-500 cursor-pointer" width="16" height="16" viewBox="0 0 16 16" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 4H3.33333H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+            <path
+              d="M5.33398 4.00016V2.66683C5.33398 2.31321 5.47446 1.97407 5.72451 1.72402C5.97456 1.47397 6.3137 1.3335 6.66732 1.3335H9.33398C9.68761 1.3335 10.0267 1.47397 10.2768 1.72402C10.5268 1.97407 10.6673 2.31321 10.6673 2.66683V4.00016M12.6673 4.00016V13.3335C12.6673 13.6871 12.5268 14.0263 12.2768 14.2763C12.0267 14.5264 11.6876 14.6668 11.334 14.6668H4.66732C4.3137 14.6668 3.97456 14.5264 3.72451 14.2763C3.47446 14.0263 3.33398 13.6871 3.33398 13.3335V4.00016H12.6673Z"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6.66602 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+            <path d="M9.33398 7.3335V11.3335" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </li>
+        <li class="flex justify-between text-sm font-normal text-gray-800 mb-4 border-gray-300 border-b">
+          <div class="pb-4 w-full">
+            <svg class="ltr:mr-2 rtl:ml-2 ltr:float-left rtl:float-right mt-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V6.00016L8.66602 1.3335Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.66602 1.3335V6.00016H13.3327" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="max-w-70 truncate">ArchitectureDesign_v1.pdf</p>
+            <p class="text-sm font-normal text-gray-500 ml-6">Completed</p>
+              <div class="relative pt-1 ml-6">
+                <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-100">
+                  <div class="w-5/12 shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-500 rounded"></div>
+                </div>
+              </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </ureed-modal-body>
+
+  <ureed-modal-footer>
+    <div class="flex justify-between w-full">
+      <button type="button" class="rounded text-gray-500 text-sm font-bold focus:outline-none">Add new file +</button>
+      <button type="button" class="rounded text-gray-500 py-2 px-8 bg-gray-300 focus:outline-none">Uploading</button>
+    </div>
+  </ureed-modal-footer>
+</ureed-modal>

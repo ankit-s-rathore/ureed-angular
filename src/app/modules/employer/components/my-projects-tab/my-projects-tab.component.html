@@ -1,0 +1,125 @@
+<div class="grid grid-cols-4 gap-10 pt-16 pb-8">
+  <div class="col-span-3">
+    <div class="flex justify-between mt-8">
+      <span class="text-3xl">My projects</span>
+      <button
+        class="post-project-btn bg-blue-600 text-white active:bg-blue-900 text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none"
+        type="button" style="transition: all 0.15s ease" (click)="openPostProjectModal()">
+        Post a new project
+      </button>
+    </div>
+
+    <form class="grid grid-cols-4 gap-8 mt-8">
+      <div>
+        <div class="hidden sm:block relative text-gray-600">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor">
+              <path
+                d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M20.9999 20.9999L16.6499 16.6499" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+          <input type="search" class="w-full py-2 text-sm bg-white rounded-md pl-10 pr-4 focus:outline-none"
+            placeholder="Search for a project" autocomplete="off" />
+        </div>
+      </div>
+      <div>
+        <ureed-select class="w-48" [showIcon]="false" [items]="itemsStatus" [label]="'Status'">
+        </ureed-select>
+      </div>
+      <div>
+        <ureed-select class="w-48" [showIcon]="false" [items]="itemsVisibility" [label]="'Visibility'">
+        </ureed-select>
+      </div>
+      <div>
+        <ureed-select class="w-48" [showIcon]="false" [items]="itemsType" [label]="'Type'">
+        </ureed-select>
+      </div>
+    </form>
+
+    <!-- Active Projects -->
+    <div class="mt-8">
+      <div class="cursor-pointer flex justify-between" (click)="isActiveProjects = !isActiveProjects">
+        <span class="text-xl">Active projects (3)</span>
+        <a class="text-blue-600 text-xs transform transition duration-500 ease-in-out"
+          [class.rotate-180]="!isActiveProjects">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 15L12 9L6 15" stroke="#1A202C" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col mt-5 space-y-5" [@slideInOut] *ngIf="isActiveProjects">
+      <ureed-project-card [showInviteBtn]="false"></ureed-project-card>
+      <ureed-project-card [isPrivate]="true" [showInviteBtn]="false"></ureed-project-card>
+      <ureed-project-card [isPrivate]="true" [isQualified]="true" [showInviteBtn]="false"></ureed-project-card>
+    </div>
+
+    <div class="border-b border-gray-300 mt-3" *ngIf="!isActiveProjects"></div>
+
+    <!-- Drafts Projects -->
+    <div class="mt-8">
+      <div class="cursor-pointer flex justify-between" (click)="isDraftProjects = !isDraftProjects">
+        <span class="text-xl">Drafted projects (2)</span>
+        <a class="text-blue-600 text-xs transform transition duration-500 ease-in-out"
+          [class.rotate-180]="!isDraftProjects">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 15L12 9L6 15" stroke="#1A202C" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col mt-5 space-y-5" [@slideInOut] *ngIf="isDraftProjects">
+      <ureed-project-card [isDraft]="true" [showInviteBtn]="false" [showPitchesBtn]="false" [showEditingBtn]="true">
+      </ureed-project-card>
+      <ureed-project-card [isDraft]="true" [showInviteBtn]="false" [showPitchesBtn]="false" [showEditingBtn]="true">
+      </ureed-project-card>
+    </div>
+
+    <div class="border-b border-gray-300 mt-3" *ngIf="!isDraftProjects"></div>
+
+    <!-- Closed Projects -->
+    <div class="mt-8">
+      <div class="cursor-pointer flex justify-between" (click)="isCloseProjects = !isCloseProjects">
+        <span class="text-xl">Closed projects (2)</span>
+        <a class="text-blue-600 text-xs transform transition duration-500 ease-in-out"
+          [class.rotate-180]="!isCloseProjects">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 15L12 9L6 15" stroke="#1A202C" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col mt-5 space-y-5" [@slideInOut] *ngIf="isCloseProjects">
+      <ureed-project-card [showInviteBtn]="false" [showPitchesBtn]="false" [showRepostBtn]="true" [isClosed]="true">
+      </ureed-project-card>
+      <ureed-project-card [showInviteBtn]="false" [showPitchesBtn]="false" [showRepostBtn]="true" [isClosed]="true">
+      </ureed-project-card>
+    </div>
+
+    <div class="border-b border-gray-300 mt-3" *ngIf="!isCloseProjects"></div>
+  </div>
+
+  <div class="space-y-10 col-span-1 mt-8">
+    <div>
+      <ureed-business-account-card></ureed-business-account-card>
+    </div>
+
+    <div>
+      <ureed-complete-profile-card></ureed-complete-profile-card>
+    </div>
+  </div>
+</div>
+
+<ureed-post-project [showModal]="showPostProjectModal$ | async" (closeModal)="closePostProjectModal()"
+  (submitModal)="createProject()" [industries]="industries$ | async">
+</ureed-post-project>

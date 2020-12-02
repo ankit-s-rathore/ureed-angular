@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Ureed</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <script src="https://global.localizecdn.com/localize.js"></script>
+  <script>!function (a) { if (!a.Localize) { a.Localize = {}; for (var e = ["translate", "untranslate", "phrase", "initialize", "translatePage", "setLanguage", "getLanguage", "detectLanguage", "getAvailableLanguages", "untranslatePage", "bootstrap", "prefetch", "on", "off", "hideWidget", "showWidget", "getSourceLanguage"], t = 0; t < e.length; t++)a.Localize[e[t]] = function () { } } }(window);</script>
+
+  <script>
+    Localize.initialize({
+      key: '58aAQzESguIri',
+      rememberLanguage: true,
+      disableWidget: true,
+    });
+
+    window.onload = function () {
+      if (Localize.getLanguage() === "ar") {
+        document.getElementsByTagName("body")[0].setAttribute("dir", "rtl");
+      }
+    }
+
+    Localize.on("setLanguage", function (data) {
+      if (data.to === "ar") {
+        document.getElementsByTagName("body")[0].setAttribute("dir", "rtl");
+      } else {
+        document.getElementsByTagName("body")[0].setAttribute("dir", "ltr");
+      }
+    })
+
+  </script>
+</head>
+
+<body class="bg-gray-100 sm:bg-ureed">
+  <ureed-root></ureed-root>
+</body>
+
+</html>

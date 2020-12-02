@@ -1,0 +1,53 @@
+<div class="relative hidden sm:block" ureedClickOutside (clickOutside)="showLanguageMenu = false">
+	<div>
+		<button
+			class="p-1 ltr:ml-2 rtl:mr-2 btn_lang border-2 border-transparent transform hover:translate-y-1 transition duration-500 focus:outline-none"
+			aria-label="Languages" (click)="showLanguageMenu = !showLanguageMenu">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+				class="inline-block" stroke="currentColor">
+				<path
+					d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+					stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				<path d="M2 12H22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				<path
+					d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z"
+					stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			</svg>
+
+			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+				class="w-4 h-4 inline-block" stroke="currentColor">
+				<path d="M4 6L8 10L12 6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+			</svg>
+		</button>
+	</div>
+	<div>
+		<div class="ltr:origin-top-right rtl:origin-top-left absolute z-10 ltr:right-0 rtl:left-0 whitespace-no-wrap mt-6 w-48 rounded-md shadow-base"
+			[@dropMenuAnimate] *ngIf="showLanguageMenu">
+			<div class="py-0 rounded-md bg-white pb-3" role="menu" aria-orientation="vertical"
+				aria-labelledby="user-menu">
+				<div class="border-b border-gray-200 pb-3">
+					<strong class="lang_title text-black text-base font-medium ltr:pl-4 rtl:pr-4 pt-4 block mb-1">Language</strong>
+					<a href="javascript:Localize.setLanguage('en')"
+						class="lang_en block px-4 py-1 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+						role="menuitem">English</a>
+					<a href="javascript:Localize.setLanguage('ar')"
+						class="lang_ar block px-4 py-1 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+						role="menuitem">العربية</a>
+				</div>
+				<div>
+					<strong
+						class="currency_title text-black text-base font-medium ltr:pl-4 rtl:pr-4 pt-4 block mb-1">Currency</strong>
+					<a href="#"
+						class="currency_usd block px-4 py-1 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+						role="menuitem">USD</a>
+					<a href="#"
+						class="currency_egp block px-4 py-1 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+						role="menuitem">EGP</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <button class="btn_freelancer hidden sm:block bg-gray-800 px-4 py-2 rounded-md focus:outline-none focus:bg-gray-700 focus:text-white">
+	<span class="text-white text-base font-normal">I’m a freelancer</span>
+</button> -->

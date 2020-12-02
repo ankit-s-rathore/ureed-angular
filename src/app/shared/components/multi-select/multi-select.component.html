@@ -1,0 +1,50 @@
+<div class="relative text-left" ureedClickOutside (clickOutside)="onCloseMenu($event)">
+  <button (click)="isOpen = !isOpen" type="button"
+    class="select-btn w-full flex justify-between rounded border border-gray-300 px-3 py-2 text-gray-900 text-sm bg-white leading-5 focus:outline-none focus:shadow-outline-blue transition ease-in-out duration-150">
+    <span class="truncate"> {{ selectedItems.length ? parseSelectedItems() : label }}</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+      class="mt-1 w-4 h-4 inline-block" stroke="currentColor">
+      <path d="M4 6L8 10L12 6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
+
+  <div [ngClass]="{'hidden': !isOpen, 'block': isOpen}" *ngIf="items.length"
+    class="ltr:origin-top-right rtl:origin-top-left absolute ltr:left-0 rtl:right-0 mt-2 w-64 rounded-md shadow-lg transform overflow-y-auto z-10 max-h-72">
+    <div class="rounded-md bg-white shadow-xs">
+      <div class="py-1 menu" role="menu">
+        <span class="text-xs flex text-gray-500 px-4 py-4 w-full" *ngIf="heading">{{ heading }}</span>
+        <span *ngIf="items.length > minItemsForSearch">
+          <label>
+            <span class="absolute ltr:ml-5 rtl:mr-5 mt-2">
+              <svg class="text-gray-500" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                <path
+                  d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M20.9999 20.9999L16.6499 16.6499" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+            <input type="text" [value]="searchQuery" (keyup)="searchItem($event)" [placeholder]="placeholder"
+              class="flex py-1 mx-4 ltr:pl-5 rtl:pr-5 bg-gray-100 placeholder-gray-500 text-gray-700 font-thin rounded font-xs border outline-none">
+          </label>
+        </span>
+
+        <ng-container *ngFor="let item of items | ureedFilter: {query: searchQuery, filterBy: 'name'}">
+          <label (click)="onSelect(item);" role="menuitem"
+            [ngClass]="{'pointer-events-none text-gray-500': selectedItems.length >= maxItemSelect && !item.checked} "
+            class="select-item menu-item inline-flex items-center w-full px-4 py-2 text-sm font-medium leading-5 hover:bg-gray-100 cursor-pointer">
+            <input type="checkbox" [checked]="item.checked" (click)="$event.stopPropagation()"
+              class="text-blue-600 w-4 h-4 rounded pointer-events-none"
+              [disabled]="selectedItems.length >= maxItemSelect && !item.checked">
+
+            <span class="select-item ltr:ml-2 rtl:mr-2 inline-flex items-center">
+              <img *ngIf="item?.icon" [src]="'assets/icons/svg/' + item.icon" alt="" class="ltr:mr-1 rtl:ml-1">
+              {{ item.name }}
+            </span>
+          </label>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

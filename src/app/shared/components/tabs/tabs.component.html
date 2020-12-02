@@ -1,0 +1,24 @@
+<div class="flex flex-wrap"
+  [ngClass]="{'rounded-lg': isCornerRounded , 'bg-white shadow-sm': tabSize !== 'x-small'}">
+  <div [ngClass]="{'w-full': fullTabBarWidth, 'container mx-auto': isContainer}">
+    <ul class="flex mb-0 list-none flex-wrap flex-row w-full"
+      [ngClass]="{'ltr:ml-20 rtl:mr-20': addSpaceBeforeFirstTab}">
+      <li *ngFor="let tab of tabs; let i = index" (click)="selectTab(tab)"
+        class="-mb-px ltr:last:mr-0 rtl:last:ml-0 flex-auto text-center" [class.flex-initial]="isContainer">
+        <a class="text-base {{notActiveBackgroundClass}} text-gray-500 block leading-normal cursor-pointer" [ngClass]="{
+            'rounded-tl-lg': isCornerRounded && i === 0,
+            'rounded-tr-lg': isCornerRounded && i === tabs.length - 1,
+            'active': tab.active && tabSize !== 'x-small',
+            'active-sub-tabs': tab.active && tabSize === 'x-small',
+            'x-small-tab': tabSize ==='x-small',
+            'small-tab': tabSize === 'small',
+            'large-tab': tabSize ==='large'
+          }">{{ tab.title }} <span>{{tab.badge}}</span></a>
+      </li>
+    </ul>
+    <ng-content select="ureed-tab.tab-container"></ng-content>
+  </div>
+</div>
+<div class="container mx-auto">
+  <ng-content></ng-content>
+</div>
